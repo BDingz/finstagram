@@ -1,17 +1,18 @@
 header {
-    background-color: #244751;
-    color: #E8FDFF;
+    background-color: #aaacff;
+    color: #fdffe3;
             
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: #fdffe3;
 }
 
 main {
-    background-color: white;
+    background-color: #ffffff;
     padding: 16px;
     font-family: 'Lato', sans-serif;
+    color: #aaacff;
 }
 
 .post {
@@ -21,3 +22,10 @@ main {
 .post .user-info img {
     border-radius: 50%;
 }
+
+h2:hover {
+    outline-color: #b3cfff8;
+    outline-style: dotted;
+}
+
+
