@@ -1,5 +1,14 @@
+def humanized_time_ago(minute_num)
+    if minute_num >= 60
+        "#{minute_num / 60} hours ago"
+    else
+        "#{minute_num} minutes ago"
+    end
+end
+
+
 get '/' do
-    return username = "sharky_j"
+    username = "sharky_j"
     avatar_url = "http://naserca.com/images/sharky_j.jpg"
     photo_url = "http://naserca.com/images/shark.png"
     time_ago_in_minutes = 15
@@ -7,5 +16,8 @@ get '/' do
     comment_count = 0
     comments = [
         "sharky_j: Out for the long weekend... too embarrassed to show y'all the beach bod!"
-        ]
+ ]
+ 
+ 
+    humanized_time_ago(time_ago_in_minutes)
 end
