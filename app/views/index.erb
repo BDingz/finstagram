@@ -3,69 +3,29 @@
         <h1>Finstagram</h1>
     </header>
     <main role="main">
+        <% @posts.each do |post| %>
         <article class="post">
             <div class="user-info">
-                <img src="<%= @post_shark[:avatar_url] %>" alt="<%= @post_shark[:username] %>"/>
-                <h2><%= @post_shark[:username] %></h2>
-                <h3><%= @post_shark[:humanized_time_ago] %></h3>
+                <img src="<%= post[:avatar_url] %>" alt="<%= post[:username] %>"/>
+                <h2><%= post[:username] %></h2>
+                <h3><%= post[:humanized_time_ago] %></h3>
             </div>
             <a class="photo" href="#">
-                <img src="<%= @post_shark[:photo_url] %>" alt="post from <%= @post_shark[:username] %>"/>
+                <img src="<%= post[:photo_url] %>" alt="post from <%= post[:username] %>"/>
             </a>
         <div class="actions">
-            <%= @post_shark[:like_count] %>
-            <span class="comment-count"><%= @post_shark[:comment_count] %> comment</span>
+            <%= post[:like_count] %> likes
+            <span class="comment-count"><%= post[:comment_count] %> comment</span>
         </div>
         <ul class="comments">
+         <% post[:comments].each do |comment| %>
             <li>
                 <p>
-                    <%= @post_shark[:comments][0][:username] %>: <%= @post_shark[:comments][0][:text] %>
+                    <%= comment[:username] %>: <%= comment[:text] %>
                 </p>
             </li>
+         <% end %>
         </ul>
-        </article>
-       
-        <article class="post">
-            <div class="user-info">
-                 <img src="<%= @post_whale[:avatar_url] %>" alt="<%= @post_whale[:username] %>"/>
-                <h2><%= @post_whale[:username] %></h2>
-                <h3><%= @post_whale[:humanized_time_ago] %></h3>
-            </div>
-            <a class="photo" href="#">
-                <img src="<%= @post_whale[:photo_url] %>" alt="post from <%= @post_whale[:username] %>"/>
-            </a>
-        <div class="actions">
-            <%= @post_whale[:like_count] %>
-            <span class="comment-count"><%= @post_whale[:comment_count] %> comment</span>
-        </div>
-        <ul class="comments">
-            <li>
-                <p>
-                    <%= @post_whale[:comments][0][:username] %>: <%= @post_whale[:comments][0][:text] %>
-                </p>
-                </li>
-            </ul>
-       </article>
-       
-       <article class="post">
-           <div class="user-info">
-                     <img src="<%= @post_marlin[:avatar_url] %>" alt="<%= @post_marlin[:username] %>"/>
-                <h2><%= @post_marlin[:username] %></h2>
-                <h3><%= @post_marlin[:humanized_time_ago] %></h3>
-            </div>
-            <a class="photo" href="#">
-                <img src="<%= @post_marlin[:photo_url] %>" alt="post from <%= @post_marlin[:username] %>"/>
-            </a>
-        <div class="actions">
-            <%= @post_marlin[:like_count] %>
-            <span class="comment-count"><%= @post_marlin[:comment_count] %> comment</span>
-        </div>
-        <ul class="comments">
-            <li>
-                <p>
-                    <%= @post_marlin[:comments][0][:username] %>: <%= @post_marlin[:comments][0][:text] %>
-                </p>
-               </li>
-           </ul>
-       </article>
-    </main>
+    </article>
+ <% end %>        
+</main>
