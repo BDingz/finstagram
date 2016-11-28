@@ -62,6 +62,10 @@ get '/posts/new' do
     erb(:"posts/new")
 end
 
+before '/posts/new' do
+    redirect '/login' unless logged_in?
+end
+
 post '/posts' do
     photo_url = params[:photo_url]
     @post = Post.new({ photo_url: photo_url, user_id: current_user
@@ -74,10 +78,24 @@ post '/posts' do
     end
 end
 
-get '/posts/:id' do 
-    @post = Post.find(params[:id])
-    erb(:"posts/show")
+post '/comments' do
+    text = params[:text]
+    post_id = params[:post_id]
+    comment = Comment.new({ text: text, post_id: post_id, user_id: current_user
+.id})
+    comment.save
+    redirect (back)
 end 
+
+#get '/posts/:id' do 
+    #@post = Post.find(params[:id])
+    #erb(:"posts/show")
+#end 
+
+#if comment.user != current_user
+	#halt(401, erb(:error_401))
+#end
+
 
 
 

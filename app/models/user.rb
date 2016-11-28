@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :email, 
                             :username
     
+    def like_for_post_id(post_id)
+        likes.find_by post_id: post_id
+    end
+
 end
 
  #create_table "users", force: :cascade do |t|
