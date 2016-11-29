@@ -1,3 +1,4 @@
+<% if false %>
 <header>
         <h1>Finstagram</h1>
         <div class ="login-info">
@@ -10,6 +11,6 @@
             <% end %>
         </div>
     </header>
-    <main role="main">
+<% end %>
         <%= erb(:'shared/post', {locals: { post: @post, allow_new_comment: true}}) %>
-    </main>
+    
